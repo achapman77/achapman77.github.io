@@ -204,6 +204,7 @@ nav a.active {
 
 .thumbnail img {
     border-radius: 4px;
+    width: 200px;
 }
 .text-block {
     position: relative;
