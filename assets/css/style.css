@@ -1,12 +1,15 @@
+*{
+    margin: 0;
+}
+
 html,
-body,
-.Site {
-    min-height: 100vh;
+body {
+    height: 75vh;
 }
 
 body {
-    margin: 0;
-    background-color: #333;
+    /* margin-top: 5em; */
+    background-color: black;
     background-image: url(https://www.mountainphotography.com/images/xl/20120824-Dark-Sunrise-in-the-Needles.jpg);
     background-position: center center;
     background-repeat: no-repeat;
@@ -19,35 +22,27 @@ body {
     color: whitesmoke;
 }
 
-/* Sticky Footer Solution --> https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
-
-.Site {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
 h1 {
-    font-size: 35px;
+    font-size: 1.5em;
     border-bottom: #b40000 solid 2px;
     margin: 20px 20px 0px 20px;
     padding-bottom: 5px;
 }
 
 p {
-    font-size: 20px;
-    line-height: 1.5;
-    margin: 20px;
+    font-size: 1em px;
+    line-height: 1.5em;
+    margin: 1em;
 }
 
 .clearfix::after {
-    content: " ";
+    content: "";
     clear: both;
     display: table;
 }
 
 /* ----------Nav Bar----------------- */
-header {
+#masthead {
     background-color: rgba(19, 18, 18, 0.589);
     /* Experimental Feature must be turned on in chrome://flags/ 
         -->Experimental Web Platform Features */
@@ -55,30 +50,24 @@ header {
     -webkit-backdrop-filter: blur(25px);  
     border-bottom: 1px solid #f2f2f2;
     padding-bottom: 10px;
-    align-items: center;
+    
+    /* Flex Sticky Header */
     display: flex;
-    flex:0 0 auto;
+    /* flex:0 0; */
+    align-items: center;
     justify-content: center;
     
     /* Sticky Header */
-    /* position: fixed;
+    position: fixed;
+    z-index: 10;
     top: 0;
     width: 100%;
-    height: auto; */
-}
-
-header::after {
-    content: " ";
-    display: table;
-    clear: both;
+    height: auto;
 }
 
 .navBar {
-    /* max-width: 50%;
-    max-height: 50%; */
     width: 55%;
     margin-top: 10px;
-    /* border: 2px solid green; */
 }
 
 .logo {
@@ -143,28 +132,27 @@ nav a.active {
 }
 
 /* ----------------Body CSS-------------- */
-.Site-content {
-    flex: 1 1 auto;
-    position: relative;
-    overflow-y: auto;
-}
+/* Sticky Footer Solution --> https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
+/* Recommended by DU Bootcamp https://css-tricks.com/snippets/css/sticky-footer/ */
 
-.container {
-    align-items: center;
+.page-wrap {
     display: flex;
-    position: relative;
-    /* top: 15%; */
-    justify-content: center;
-    /* min-height: 80vmin; */
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* overflow-y: auto; */
+    /* position: relative; */
+    height: auto !important;
+    /* height: 100%; */
+    min-height: 100%;
     width: 100%;
-    /* border: 3px solid red; */
-    margin: 15px 0px;
+    margin: 10em 0 -50px 0;     
   }
 
-.container::after {
-    content: " ";
-    clear: both;
-    display: table;
+.page-wrap:after {
+    content:"";
+    display: block;
+    height: 50px;
 }
 .box {
     background-color: rgba(44, 43, 43, 0.651);
@@ -173,19 +161,18 @@ nav a.active {
     backdrop-filter: blur(25px);   
     -webkit-backdrop-filter: blur(25px);  
     border-radius: 5px;
-    text-align: left;
+    
+    /* display: flex;
+    flex-direction: column; */
+    /* text-align: left; */
     width: 55%;
+    height: 100%;
+    /* border: 2px solid orange; */
   }
 
-.container::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
 #profilePic {
-    width: 200px;
-    height: 200px;
+    width: 50%;
+    height: 100%;
     float: left;
     margin: 20px;
 }
@@ -194,17 +181,21 @@ nav a.active {
 /* --------------Portfolio-------------- */
 /* Need to FlexBox This! */
 .thumbContainer {
-    margin-left: 55px;
-    overflow: hidden;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    /* align-content: space-evenly; */
+    
 }
 .thumbnail {
     width: 200px;
     height: 200px;
+    margin: 1em;
     /* position: relative; */
-    margin-top: 20px;
-    float: left;
-    margin-right: 30px;
-    margin-bottom: 10px;
+    /* margin-top: 20px; */
+    /* float: left; */
+    /* margin-right: 30px; */
+    /* margin-bottom: 10px; */
 }
 
 .thumbnail a {
@@ -216,7 +207,7 @@ nav a.active {
 }
 .text-block {
     position: relative;
-    bottom: 70px;
+    bottom: 4em;
     background-color: #b40000;
     color: #f2f2f2;
     text-align: center;
@@ -357,7 +348,7 @@ input[type=submit] {
     color: #f2f2f2;
     padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
     width: 95%;
     margin: 20px;
@@ -386,11 +377,11 @@ footer {
     justify-content: center;
     
     width: 100%;
-    height: auto;
+    height: 50px;
     /* Sticky Footer part 2 https://appendto.com/2016/09/css-simple-sticky-footer/ */
-    /* position: relative;
+    position: relative;
     bottom: -20%;
-    left: 0%; */
+    left: 0%;
 }
 
 footer::after {
